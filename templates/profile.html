@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="static/style/profile.css">
+</head>
+<body>
+<div class="card">	
+    <div class="card_base"></div>
+    <div class="card_face"></div>
+	{% for msg in get_flashed_messages() %}
+    <div class="user_data">
+        <h3>Амелия</h3>
+		<h3>{{msg}}</h3>
+    </div>
+	{% endfor %}
+	<p></p>	
+    <div class="card_count">
+        <div class="count">
+            <div class="email">
+                <h3>something@yandex.ru</h3>
+                <p>электронная почта</p>
+            </div>
+            <div class="favorite_topics">
+                <h3>география, литература, информационные технологии</h3>
+                <p>любимые темы (интересы)</p>
+            </div>
+        </div>
+        <div class="btn">Изменить</div>
+    </div>
+</div>
+
+<div class="dropdown">
+    <button class="dropbtn">Меню</button>
+    <div class="dropdown-content">
+        <a href="#">Мой профиль</a>
+        <a href="#">Список викторин</a>
+        <a href="#">Пройденные викторины</a>
+        <a href="#">Мои викторины</a>
+        <a href="#">Создать викторину</a>
+        <a href="logout">Выйти из аккаунта</a>
+    </div>
+  </div>
+</body>
+</html>
