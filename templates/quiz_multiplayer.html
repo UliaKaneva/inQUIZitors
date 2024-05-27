@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мультиплеер</title>
+    <link rel="stylesheet" href="/static/style/body.css">
+    <link rel="stylesheet" href="/static/style/menu.css">
+    <link rel="stylesheet" href="/static/style/quiz_multiplayer.css">
+</head>
+<body>
+<div class="card">
+    <h3>Создать комнату:</h3>
+    <form id="create-room-form" method="post">
+        <input type="text" id="name" name="name" placeholder="Название комнаты" required>
+        <p></p>
+        <button class="btn" type="button" id="create-room-button">Создать комнату</button>
+    </form>
+    <p></p>
+    <h3>Список комнат:</h3>
+    {% for el in quiz_rooms %}
+    <div class="room-container">
+        {{ el }}
+    </div>
+    <form action="quiz_multiplayer/{{ el }}" method="get">
+        <button type="submit" class="btn">Присоединиться</button>
+    </form>
+    {% endfor %}
+</div>
+<div class="dropdown">
+    <button class="dropbtn">Меню</button>
+    <div class="dropdown-content">
+        <a href="/profile">Мой профиль</a>
+        <a href="/settings">Настройки</a>
+        <a href="/quiz_list">Список викторин</a>
+        <a href="/quiz_multiplayer">Мультиплеер</a>
+        <a href="/create_quiz">Создать викторину</a>
+        <a href="/logout">Выйти из аккаунта</a>
+    </div>
+</div>
+<script>
+    const nameInput = document.getElementById('name');
+    const createRoomButton = document.getElementById('create-room-button');
+
+    createRoomButton.addEventListener('click', function() {
+      const name = nameInput.value.trim();
+      event.preventDefault();
+      const quizRoomUrl = `quiz_multiplayer/${name}`;
+      window.location.href = quizRoomUrl;
+      const formData = new FormData(document.getElementById('create-room-form'));
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', document.getElementById('create-room-form').action);
+      xhr.send(formData);
+    });
+</script>
+</body>
+</html>

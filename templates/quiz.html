@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Викторина</title>
+    <link rel="stylesheet" href="/static/style/body.css">
+    <link rel="stylesheet" href="/static/style/menu.css">
+    <link rel="stylesheet" href="/static/style/quiz.css">
+</head>
+<body>
+<div class='card'>
+    <img class="image" src="/static/images/{{ image_url }}">
+
+    <div class="timer" id="timer">Осталось времени: 15 секунд</div>
+    <h1>{{question}}</h1>
+    <form method="post">
+        <input type="hidden" name="q_id" value="{{ quest_id }}">
+        {% for answer in answers_list %}
+        <p><input type="radio" name="ans_text" value="{{ answer }}">{{ answer }}</p>
+        {% endfor %}
+        <input class="btn" type="submit" value="Ответить">
+    </form>
+</div>
+<div class="dropdown">
+    <button class="dropbtn">Меню</button>
+    <div class="dropdown-content">
+        <a href="/profile">Мой профиль</a>
+        <a href="/settings">Настройки</a>
+        <a href="/quiz_list">Список викторин</a>
+        <a href="/quiz_multiplayer">Мультиплеер</a>
+        <a href="/create_quiz">Создать викторину</a>
+        <a href="/logout">Выйти из аккаунта</a>
+    </div>
+</div>
+<script>
+    var timeLeft = 15; // Время в секундах
+    var timerElement = document.getElementById('timer');
+    var formElement = document.querySelector('form');
+
+    function startTimer() {
+        var timerInterval = setInterval(function() {
+            timeLeft--;
+            timerElement.innerHTML = 'Осталось времени: ' + timeLeft + ' секунд';
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+
+                var radioButtons = document.querySelectorAll('input[type="radio"]');
+                for (var i = 0; i < radioButtons.length; i++) {
+                    radioButtons[i].value = null;
+                }
+                formElement.submit();
+            }
+        }, 1000); // Обновление таймера каждую секунду (1000 миллисекунд)
+    }
+
+    startTimer(); // Запуск таймера при загрузке страницы
+</script>
+</body>
+</html>
