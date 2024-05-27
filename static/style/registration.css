@@ -1,14 +1,4 @@
 
-body {
-    font-family: Roboto, sans-serif;
-    background: linear-gradient(LightBlue, black);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
 
 .main {
     background-color: #AFEEEE;
@@ -17,6 +7,7 @@ body {
         rgba(0, 0, 0, 0.5);
     padding: 20px;
     width: 300px;
+    margin-top: 125px;
 }
 
 .main h2 {
@@ -40,7 +31,7 @@ input[type="password"] {
     background-color: #E0FFFF;
     color: black;
     cursor: pointer;
-    width: 93%;
+    width: 90%;
     font-size: 16px;
 }
 
@@ -51,6 +42,6 @@ padding: 15px;
     background-color: #68dbd7;
     color: black;
     cursor: pointer;
-    width: 93%;
+    width: 100%;
     font-size: 16px;
 }

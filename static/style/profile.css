@@ -1,13 +1,9 @@
-body {
-            font-family: Roboto, sans-serif;
-            background: linear-gradient(LightBlue, black);
-            margin: 0;
-            padding: 0;
-            display: grid;
-            justify-content: center;
-            align-items: start;
-            align-content: flex-start;
-            height: 100vh;
+
+        .hidden {
+        display: none;
+        }
+        .email{
+        text-align: center;
         }
 
         h3 {
@@ -16,6 +12,16 @@ body {
         }
 
         .card {
+        border-radius: 10px;
+            width: 360px;
+            min-height: 380px;
+            background-color: #AFEEEE;
+            margin: 0 auto;
+            margin-top: 120px;
+            box-shadow: 0 0 20px
+                rgba(0, 0, 0, 0.5);
+        }
+        .card2 {
             width: 360px;
             height: auto;
             background-color: #AFEEEE;
@@ -28,16 +34,20 @@ body {
         .card_face {
             width: 120px;
             height: 120px;
+			display: block;
             background-color: #868d9b;
-            background: url("../images/лицо.jpg");
             background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
             border: 2px solid #ffffff;
             border-radius: 120px;
-            margin: 0 auto;
+            margin: auto;
             margin-top: -60px;
         }
+		.center {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+		}
 
         .card_base {
             width: 100%;
@@ -48,12 +58,31 @@ body {
             background-size: cover;
             background-position: center;
         }
+                .card_base2 {
+            width: 100%;
+            height: 180px;
+            background-color: #e1e7ed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+		.textarea {
+		    overflow: auto;
+		    vertical-align: top;
+		    min-height: 50px;
+		}
 
         .user_data h3 {
+			font-size: 150%;
             margin-top: 10px;
             text-align: center;
             word-break: break-all;
         }
+		
+		.profile-load input[type=submit], input[type=file] {
+         width: 100%;
+         font-size: 18px;
+		}
 
         .card_count {
             padding: 30px;
@@ -82,42 +111,20 @@ body {
             text-align: center;
             font-size: 16px;
         }
+        .image_button {
+            width: 30px;
+            height: 30px;
+            margin-top: 86px;
+			margin-left: 86px;
+        }	
 
-        .dropbtn {
-            background-color: #AFEEEE;
-            color: black;
-            padding: 20px;
-            font-size: 16px;
-            border: none;
-            box-shadow: 12px 10px 16px 1px
-                rgba(0, 150, 255, 0.2);
-            border-radius: 10px;
+        .quiz-container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;  /* Adjust width as needed */
         }
 
-        .dropdown {
-            position: absolute;
-            display: inline-block;
+        .quiz-column {
+          flex: 1;
+          padding: 10px;  /* Add some padding for spacing */
         }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #AFEEEE;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 1px
-                rgba(0, 150, 255, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {background-color: #68dbd7;}
-
-        .dropdown:hover .dropdown-content {display: block;}
-
-        .dropdown:hover .dropbtn {background-color: #68dbd7;}

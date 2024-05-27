@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки</title>
+    <link rel="stylesheet" href="static/style/body.css">
+    <link rel="stylesheet" href="static/style/menu.css">
+    <link rel="stylesheet" href="static/style/settings.css">
+</head>
+<body>
+{% block content %}
+<div class="card">	
+    <div class="card_count">
+        <div class="count">
+            <table border="0" class="profile-table">
+				<p>Выберите фото в формате .png размером не более 500 на 500 пикселей:</p>
+                   <div class="profile-load">
+                   <form action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
+                            <input type="file" name="file">
+                            <input type="submit" value="Загрузить">
+                   </form> 
+                   </div>
+</table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<div class="dropdown">
+    <button class="dropbtn">Меню</button>
+    <div class="dropdown-content">
+        <a href="/profile">Мой профиль</a>
+		<a href="/settings">Настройки</a>
+        <a href="/quiz_list">Список викторин</a>
+        <a href="/quiz_multiplayer">Мультиплеер</a>
+        <a href="/create_quiz">Создать викторину</a>
+        <a href="/logout">Выйти из аккаунта</a>
+    </div>
+  </div>
+</body>
+</html>
