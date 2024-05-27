@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание викторины</title>
+    <link rel="stylesheet" href="static/style/body.css">
+    <link rel="stylesheet" href="static/style/menu.css">
+    <link rel="stylesheet" href="static/style/create_quiz.css">
+</head>
+<body>
+    <img class="ar1" src="static/images/strelka1.png">
+    <img class="ar2" src="static/images/strelka2.png">
+    <img class="ar3" src="static/images/strelka3.png">
+    <img class="ar4" src="static/images/strelka4.png">
+    <img class="ar5" src="static/images/strelka5.png">
+    <img class="ar6" src="static/images/strelka6.png">
+
+
+     <form method="post" class="card" enctype="multipart/form-data">
+        <h1>Создание викторины</h1>
+        <div class="input-group">
+            <label for="quiz-name">Название викторины:</label>
+            <input type="text" id="quiz-name" name="input-1" placeholder="Введите название">
+        </div>
+
+        <div class="input-group">
+            <label for="quiz-description">Описание викторины:</label>
+            <input type="text" name="input-2" id="quiz-description" placeholder="Введите описание">
+        </div>
+
+        <div class="questions-container">
+            <h2>Вопросы</h2>
+            <input class="file-input" type="file" name="image">
+            <div class="question">
+                <div class="input-group">
+                    <label for="question-1">Описание вопроса:</label>
+                    <input type="text" name="input-3" id="text">
+                </div>
+                <div class="input-group">
+                    <label for="question-1">Вариант ответа 1:</label>
+                    <input type="text" name="input-4" id="question-1">
+                </div>
+                <div class="input-group">
+                    <label for="question_2">Вариант ответа 2:</label>
+                    <input type="text" name="input-5" id="question_2">
+                </div>
+                <div class="input-group">
+                    <label for="question_3">Вариант ответа 3:</label>
+                    <input type="text" name="input-6" id="question_3">
+                </div>
+                <div class="input-group">
+                    <label for="question_4">Вариант ответа 4:</label>
+                    <input type="text" name="input-7" id="question_4">
+                </div>
+                <div class="input-group">
+                    <label for="answer">Номер правильного ответа:</label>
+                    <input type="text" name="input-8" id="answer">
+                </div>
+            </div>
+
+            </div>
+
+        <div class="buttons">
+            <button type="submit" name="save-quiz" id="save-quiz">Сохранить викторину</button>
+            <button type="submit" name="next-question" id="next-question">Следующий вопрос</button>
+        </div>
+    </form>
+<div class="dropdown">
+    <button class="dropbtn">Меню</button>
+    <div class="dropdown-content">
+        <a href="profile">Мой профиль</a>
+		<a href="settings">Настройки</a>
+        <a href="quiz_list">Список викторин</a>
+        <a href="quiz_multiplayer">Мультиплеер</a>
+        <a href="create_quiz">Создать викторину</a>
+        <a href="logout">Выйти из аккаунта</a>
+    </div>
+  </div>
+</body>
+</html>

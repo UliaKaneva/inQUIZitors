@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комната</title>
+    <link rel="stylesheet" href="/static/style/body.css">
+    <link rel="stylesheet" href="/static/style/menu.css">
+    <link rel="stylesheet" href="/static/style/quiz_multiplayer.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+    var socket = io();
+    var room_name = '';
+
+    socket.on('user_connected', function(data) {
+        var user = document.createElement("li");
+        user.textContent = data.username;
+        user.id = data.username;
+        document.getElementById("online-users").appendChild(user);
+    });
+
+    socket.on('check_players', function(msg) {
+        socket.emit('check_players');
+    });
+
+    socket.on('user_role', function(data) {
+        if (data['role']) {
+            document.getElementById('start-button').style.display = 'block';
+        } else {
+            document.getElementById('start-button').style.display = 'none';
+        }
+    });
+
+    socket.on('players_list', function(data) {
+        var playersList = document.getElementById('players');
+        playersList.innerHTML = ''; // Очистка списка перед обновлением
+
+        data[0].forEach(function(player) {
+            var playerItem = document.createElement('li');
+            playerItem.textContent = player;
+            playersList.appendChild(playerItem);
+        });
+        room_name = data[1];
+    });
+
+    socket.on('user_disconnected', function(data) {
+        var user = document.getElementById(data.username);
+        if (user) {
+            user.parentNode.removeChild(user);
+        }
+    });
+
+    socket.on('start_quiz', function(data) {
+        console.log("kapec");
+        if (data[0] = room_name) {
+            window.location.assign(data[1]);
+        }
+
+    });
+</script>
+</head>
+<body>
+{% block content %}
+<div class="card">
+    <h3>Название комнаты: {{ lobby_name }}</h3>
+    <form method="post" id="quiz_form">
+        <select class="select-css" id="quiz_select">
+            <option disabled>Выберите викторину</option>
+            {% for el in quiz_list %}
+            <option value="{{ el[1] }}">{{ el[1] }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" id="start-button" class="btn" style="display: none; margin-top: 15px;">Начать игру</button>
+    </form>
+
+    <div id="player-list">
+        <h2>Список участников:</h2>
+        <ul id="players"></ul>
+    </div>
+</div>
+{% endblock %}
+<div class="dropdown">
+    <button class="dropbtn">Меню</button>
+    <div class="dropdown-content">
+        <a href="/profile">Мой профиль</a>
+		<a href="/settings">Настройки</a>
+        <a href="/quiz_list">Список викторин</a>
+        <a href="/quiz_multiplayer">Мультиплеер</a>
+        <a href="/create_quiz">Создать викторину</a>
+        <a href="/logout">Выйти из аккаунта</a>
+    </div>
+  </div>
+<script>
+    const quizSelect = document.getElementById('quiz_select');
+    const startButton = document.getElementById('start-button');
+    startButton.addEventListener('click', () => {
+      event.preventDefault();
+      const selectedQuiz = quizSelect.value;
+      socket.emit("start_quiz", selectedQuiz);
+    });
+</script>
+</body>
+</html>

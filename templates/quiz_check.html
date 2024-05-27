@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты</title>
+    <link rel="stylesheet" href="/static/style/body.css">
+    <link rel="stylesheet" href="/static/style/menu.css">
+    <link rel="stylesheet" href="/static/style/quiz_check.css">
+</head>
+<body>
+<div class="card">
+        <p>
+            {{ right }} правильных ответов из {{total}}
+        </p>
+    <form action="/quiz_list">
+        <input class="btn" type="submit" value="Вернуться к списку викторин">
+    </form>
+</div>
+<div class="dropdown">
+    <button class="dropbtn">Меню</button>
+    <div class="dropdown-content">
+        <a href="/profile">Мой профиль</a>
+		<a href="/settings">Настройки</a>
+        <a href="/quiz_list">Список викторин</a>
+        <a href="/quiz_multiplayer">Мультиплеер</a>
+        <a href="/create_quiz">Создать викторину</a>
+        <a href="/logout">Выйти из аккаунта</a>
+    </div>
+  </div>
+</body>
+</html>

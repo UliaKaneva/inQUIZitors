@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты</title>
+    <link rel="stylesheet" href="/static/style/body.css">
+    <link rel="stylesheet" href="/static/style/menu.css">
+    <link rel="stylesheet" href="/static/style/quiz_check.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        socket.emit("count_all_users_answers");
+
+        socket.on('show_result', function(msg) {
+            const resultElement = document.querySelector('p');
+        resultElement.textContent = 'Победитель - ' + msg[0] + '.' + ' Баллов: ' + msg[1];
+    });
+    </script>
+</head>
+<body>
+<div class="card">
+    <p>
+        {{ right }} правильных ответов из {{total}}
+        <br/>
+        <br/>
+        Ждем ответа остальных игроков
+    </p>
+    <form action="/quiz_multiplayer">
+        <input class="btn" type="submit" value="Вернуться к мультиплееру">
+    </form>
+</div>
+<div class="dropdown">
+    <button class="dropbtn">Меню</button>
+    <div class="dropdown-content">
+        <a href="/profile">Мой профиль</a>
+        <a href="/settings">Настройки</a>
+        <a href="/quiz_list">Список викторин</a>
+        <a href="#">Пройденные викторины</a>
+        <a href="#">Мои викторины</a>
+        <a href="#">Создать викторину</a>
+        <a href="logout">Выйти из аккаунта</a>
+    </div>
+</div>
+</body>
+</html>
