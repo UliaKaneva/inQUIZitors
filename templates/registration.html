@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RegistrationForm</title>
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="static/style/body.css">
     <link rel="stylesheet" href="static/style/registration.css">
 </head>
 <body>
 <div class="main">
     <h2>Регистрация</h2>
 	<p></p>
-	{% for cat, msg in get_flashed_messages(True) %}
-	<div class="flash {{cat}}">{{msg}}</div>
-	{% endfor %}
 	<p></p>	
 	<form action="/register" method="post" class="form-contact">
 		<label for="name">Никнейм:</label>

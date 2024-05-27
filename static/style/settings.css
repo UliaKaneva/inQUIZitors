@@ -1,0 +1,46 @@
+.profile-load input[type=submit]{
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #68dbd7;
+    color: black;
+    cursor: pointer;
+    width: 100%;
+    font-size: 22px;
+    margin-top: 15px;
+}
+.profile-load input[type=file] {
+         width: 100%;
+         font-size: 22px;
+}
+.count p {
+         width: 100%;
+         font-size: 24px;
+         margin-bottom: 40px;
+}
+
+
+        .card {
+        border-radius: 10px;
+            width: 450px;
+            height: 300px;
+            background-color: #AFEEEE;
+            margin: 0 auto;
+            margin-top: 150px;
+            box-shadow: 0 0 20px
+                rgba(0, 0, 0, 0.5);
+        }
+        .card_count {
+            padding: 30px;
+        }
+		        .count {
+            display: grid;
+            margin-bottom: 28px;
+            margin-top: -20px;
+        }
+
+        .count p {
+            margin-top: 30px;
+        }
+
+ul.profile-info li {margin-top: 10px;}

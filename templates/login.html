@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="static/style/login.css">
+    <title>Вход</title>
+    <link rel="stylesheet" href="static/style/body.css">
+    <link rel="stylesheet" href="static/style/registration.css">
 </head>
 <body>
 <div class="main">
     <h2>Вход</h2>
 	<p></p>
-	{% for msg in get_flashed_messages() %}
-	<div class="flash">{{msg}}</div>
-	{% endfor %}
 	<p></p>
     <form action="/login" method="post" class="form-contact">
         <label for="email">Электронная почта:</label>
